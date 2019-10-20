@@ -81,7 +81,7 @@
 }
 .input-info{
 	height: 40px;
-	width: 110px;
+	width: 180px;
 }
 .input-vcode{
 	width: 115px;
