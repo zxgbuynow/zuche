@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view class="p-info"> 
-			<image class="header-img" src="../../static/logo.png"></image>
+			<image @tap="updateHeaderImg()" class="header-img" src="../../static/logo.png"></image>
 		</view>
 		<view class="text-info" @tap="updateInfo('fullname')">
 			<view class="title-small">姓名</view>
@@ -29,6 +29,10 @@ export default {
 	methods:{
 		updateInfo(type){
 			this.$api.msg(type);
+		},
+		//头像
+		updateHeaderImg() {
+			this.$api.msg('修改头像')
 		}
 	},
 	onLoad() {
