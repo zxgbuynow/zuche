@@ -1,9 +1,9 @@
 <template>
 	<view class="center">
-		<view class="logo" @click="goLogin" :hover-class="!login ? 'logo-hover' : ''">
+		<view class="logo"  :hover-class="!login ? 'logo-hover' : ''">
 			<image class="logo-img" :src="uerInfo.avatarUrl ? uerInfo.avatarUrl :avatarUrl"></image>
 			<view class="logo-title">
-				<text class="uer-name">{{login ? uerInfo.name : '登入/注册'}}</text>
+				<text class="uer-name" @click="goLogin">{{login ? uerInfo.name : '登入/注册'}}</text>
 				<text style="margin-left: 100px;" v-if="login">￥666</text>
 				<text class="go-login navigat-arrow" v-if="login">&#xe65e;</text>
 			</view>
