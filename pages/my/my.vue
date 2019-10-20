@@ -9,7 +9,7 @@
 			</view>
 		</view>
 		<view class="center-list">
-			<view class="center-list-item border-bottom">
+			<view class="center-list-item border-bottom" @tap="goPerson">
 				<!-- <text class="list-icon">&#xe60f;</text> -->
 				<text class="list-text">个人信息</text>
 				<text class="navigat-arrow">&#xe65e;</text>
@@ -65,6 +65,19 @@
 			}
 		},
 		methods: {
+			//个人信息
+			goPerson(){
+				if (!this.login) {
+					uni.navigateTo({
+						url:"login"
+					});
+				}else { //余额
+					uni.navigateTo({
+						url:"personal"
+					})
+				}
+			},
+			//登录
 			goLogin() {
 				if (!this.login) {
 					uni.navigateTo({
