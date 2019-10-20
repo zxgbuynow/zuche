@@ -1,53 +1,19 @@
 <template>
 	<view class="center">
-		<view class="logo"  :hover-class="!login ? 'logo-hover' : ''">
-			<image class="logo-img" :src="uerInfo.avatarUrl ? uerInfo.avatarUrl :avatarUrl"></image>
-			<view class="logo-title">
-				<text class="uer-name" @click="goLogin">{{login ? uerInfo.name : '登入/注册'}}</text>
-				<text style="margin-left: 100px;" v-if="login">￥666</text>
-				<text class="go-login navigat-arrow" v-if="login">&#xe65e;</text>
-			</view>
+		<view class="bg-info">
+			<view class="blance">余额账号（元）</view>
+			<view class="money">0.00</view>
 		</view>
 		<view class="center-list">
 			<view class="center-list-item border-bottom">
 				<!-- <text class="list-icon">&#xe60f;</text> -->
-				<text class="list-text">个人信息</text>
+				<text class="list-text">充值</text>
 				<text class="navigat-arrow">&#xe65e;</text>
 			</view>
-			<view class="center-list-item border-bottom" @tap="goAuthen">
+			<view class="center-list-item border-bottom" @tap="goCash">
 				<!-- <text class="list-icon">&#xe639;</text> -->
-				<text class="list-text">实名认证</text>
-				<text class="text-authen">{{!authentication?"未认证":"已认证"}}</text>
-				<text class="navigat-arrow">&#xe65e;</text>
-			</view>
-			<view class="center-list-item border-bottom" @tap="goBankCard">
-				<!-- <text class="list-icon">&#xe639;</text> -->
-				<text class="list-text">银行卡</text>
-				<text class="navigat-arrow">&#xe65e;</text>
-			</view>
-			<view class="center-list-item border-bottom" @tap="goBill">
-				<!-- <text class="list-icon">&#xe639;</text> -->
-				<text class="list-text">账单</text>
-				<text class="navigat-arrow">&#xe65e;</text>
-			</view>
-			<view class="center-list-item border-bottom">
-				<!-- <text class="list-icon">&#xe639;</text> -->
-				<text class="list-text">当前公司</text>
-				<text class="navigat-arrow">&#xe65e;</text>
-			</view>
-		</view>
-		<view class="center-list">
-			
-			<view class="center-list-item border-bottom">
-				<!-- <text class="list-icon">&#xe65f;</text> -->
-				<text class="list-text">推广</text>
-				<text class="navigat-arrow">&#xe65e;</text>
-			</view>
-		</view>
-		<view class="center-list">
-			<view class="center-list-item border-bottom">
-				<!-- <text class="list-icon">&#xe614;</text> -->
-				<text class="list-text">关于</text>
+				<text class="list-text">提现</text>
+				
 				<text class="navigat-arrow">&#xe65e;</text>
 			</view>
 		</view>
@@ -65,54 +31,15 @@
 			}
 		},
 		methods: {
-			goLogin() {
-				if (!this.login) {
-					uni.navigateTo({
-						url:"login"
-					});
-				}else { //余额
-					uni.navigateTo({
-						url:"balance"
-					})
-				}
+			goCash() {
+				uni.navigateTo({
+					url:"cash"
+				})
 			},
-			//实名认证
-			goAuthen() {
-				if(!this.authentication) {
-					uni.navigateTo({
-						url:"authentication"
-					})
-				}
-			},
-			//账单
-			goBill() {
-				if (!this.login) {
-					uni.navigateTo({
-						url:"login"
-					});
-				}else {
-					uni.navigateTo({
-						url:"bill"
-					})
-				}
-			},
-			//银行卡
-			goBankCard() {
-				if (!this.login) {
-					uni.navigateTo({
-						url:"login"
-					});
-				}else {
-					uni.navigateTo({
-						url:"bankcard"
-					})
-				}
-			}
+			
 		},
 		onLoad() {
-			this.uerInfo ={
-				"name":"张三"
-			}
+			
 		}
 	}
 </script>
@@ -133,7 +60,28 @@
 	page {
 		background-color: #f8f8f8;
 	}
-
+.bg-info{
+	background-color: rgb(27,139,207);
+	height: 300upx;
+	margin: 10px;
+	border-radius: 10px;
+	display: inline-block;
+	text-align: center;
+}
+.blance{
+	text-align: center;
+	color: #FFFFFF;
+	padding: 20px 0 0 0;
+	display: block;
+	
+}
+.money{
+	font-size: 70px;
+	color: #FFFFFF;
+	text-align: center;
+	font-weight: bold;
+	display: block;
+}
 	.center {
 		flex-direction: column;
 	}

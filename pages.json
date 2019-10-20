@@ -37,6 +37,24 @@
 			"style": {
 				"navigationBarTitleText": "账单"
 			}
+		},
+		{
+			"path": "pages/my/cash",
+			"style": {
+				"navigationBarTitleText": "提现"
+			}
+		},
+		{
+			"path": "pages/my/balance",
+			"style": {
+				"navigationBarTitleText": "余额"
+			}
+		},
+		{
+			"path": "pages/my/bankcard",
+			"style": {
+				"navigationBarTitleText": "银行卡"
+			}
 		}
     ],
 	"globalStyle": {
