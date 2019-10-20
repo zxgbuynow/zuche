@@ -14,7 +14,7 @@
 				<text class="list-text">个人信息</text>
 				<text class="navigat-arrow">&#xe65e;</text>
 			</view>
-			<view class="center-list-item border-bottom" @click="goAuthen">
+			<view class="center-list-item border-bottom" @tap="goAuthen">
 				<!-- <text class="list-icon">&#xe639;</text> -->
 				<text class="list-text">实名认证</text>
 				<text class="text-authen">{{!authentication?"未认证":"已认证"}}</text>
@@ -25,7 +25,7 @@
 				<text class="list-text">银行卡</text>
 				<text class="navigat-arrow">&#xe65e;</text>
 			</view>
-			<view class="center-list-item border-bottom">
+			<view class="center-list-item border-bottom" @tap="goBill">
 				<!-- <text class="list-icon">&#xe639;</text> -->
 				<text class="list-text">账单</text>
 				<text class="navigat-arrow">&#xe65e;</text>
@@ -58,7 +58,7 @@
 	export default {
 		data() {
 			return {
-				login: false,
+				login: true,
 				authentication:false,
 				avatarUrl: "../../static/logo.png",
 				uerInfo: {}
@@ -80,6 +80,18 @@
 					})
 				}
 			},
+			//账单
+			goBill() {
+				if (!this.login) {
+					uni.navigateTo({
+						url:"login"
+					});
+				}else {
+					uni.navigateTo({
+						url:"bill"
+					})
+				}
+			}
 		},
 		onLoad() {
 			this.uerInfo ={

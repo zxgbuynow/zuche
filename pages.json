@@ -31,6 +31,12 @@
 			"style": {
 				"navigationBarTitleText": "实名认证"
 			}
+		},
+		{
+			"path": "pages/my/bill",
+			"style": {
+				"navigationBarTitleText": "账单"
+			}
 		}
     ],
 	"globalStyle": {
