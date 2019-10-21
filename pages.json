@@ -11,7 +11,49 @@
 		    "path" : "pages/trade/trade",
 		    "style" : {
 				"enablePullDownRefresh": true,
-				"navigationBarTitleText": "订单"
+				"navigationBarTitleText": "订单/合同"
+			}
+		},
+		{
+		    "path" : "pages/trade/detail",
+		    "style" : {
+				"enablePullDownRefresh": false,
+				"navigationBarTitleText": "订单详情"
+			}
+		},
+		{
+		    "path" : "pages/trade/pay",
+		    "style" : {
+				"enablePullDownRefresh": true,
+				"navigationBarTitleText": "缴费"
+			}
+		},
+		{
+		    "path" : "pages/trade/list",
+		    "style" : {
+				"enablePullDownRefresh": true,
+				"navigationBarTitleText": "历史账单"
+			}
+		},
+		{
+		    "path" : "pages/trade/checkout",
+		    "style" : {
+				"enablePullDownRefresh": false,
+				"navigationBarTitleText": "下单"
+			}
+		},
+		{
+		    "path" : "pages/trade/contact",
+		    "style" : {
+				"enablePullDownRefresh": false,
+				"navigationBarTitleText": "通讯录"
+			}
+		},
+		{
+		    "path" : "pages/trade/checkin",
+		    "style" : {
+				"enablePullDownRefresh": false,
+				"navigationBarTitleText": "审核"
 			}
 		},{
             "path" : "pages/my/my",
