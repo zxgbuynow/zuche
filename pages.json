@@ -53,7 +53,8 @@
 		{
 			"path": "pages/my/bankcard",
 			"style": {
-				"navigationBarTitleText": "银行卡"
+				"navigationBarTitleText": "银行卡",
+				"enablePullDownRefresh": true
 			}
 		},
 		{

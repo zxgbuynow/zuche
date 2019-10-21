@@ -168,7 +168,7 @@
 	.logo-img {
 		width: 150upx;
 		height: 150upx;
-		border-radius: 150upx;
+		/*border-radius: 150upx;*/
 	}
 
 	.logo-title {
