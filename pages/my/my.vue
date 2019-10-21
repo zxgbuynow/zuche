@@ -9,23 +9,23 @@
 			</view>
 		</view>
 		<view class="center-list">
-			<view class="center-list-item border-bottom">
+			<view class="center-list-item border-bottom" @tap="goPerson">
 				<!-- <text class="list-icon">&#xe60f;</text> -->
 				<text class="list-text">个人信息</text>
 				<text class="navigat-arrow">&#xe65e;</text>
 			</view>
-			<view class="center-list-item border-bottom" @click="goAuthen">
+			<view class="center-list-item border-bottom" @tap="goAuthen">
 				<!-- <text class="list-icon">&#xe639;</text> -->
 				<text class="list-text">实名认证</text>
 				<text class="text-authen">{{!authentication?"未认证":"已认证"}}</text>
 				<text class="navigat-arrow">&#xe65e;</text>
 			</view>
-			<view class="center-list-item border-bottom">
+			<view class="center-list-item border-bottom" @tap="goBankCard">
 				<!-- <text class="list-icon">&#xe639;</text> -->
 				<text class="list-text">银行卡</text>
 				<text class="navigat-arrow">&#xe65e;</text>
 			</view>
-			<view class="center-list-item border-bottom">
+			<view class="center-list-item border-bottom" @tap="goBill">
 				<!-- <text class="list-icon">&#xe639;</text> -->
 				<text class="list-text">账单</text>
 				<text class="navigat-arrow">&#xe65e;</text>
@@ -58,18 +58,35 @@
 	export default {
 		data() {
 			return {
-				login: false,
+				login: true,
 				authentication:false,
 				avatarUrl: "../../static/logo.png",
 				uerInfo: {}
 			}
 		},
 		methods: {
+			//个人信息
+			goPerson(){
+				if (!this.login) {
+					uni.navigateTo({
+						url:"login"
+					});
+				}else { //余额
+					uni.navigateTo({
+						url:"personal"
+					})
+				}
+			},
+			//登录
 			goLogin() {
 				if (!this.login) {
 					uni.navigateTo({
 						url:"login"
 					});
+				}else { //余额
+					uni.navigateTo({
+						url:"balance"
+					})
 				}
 			},
 			//实名认证
@@ -80,6 +97,30 @@
 					})
 				}
 			},
+			//账单
+			goBill() {
+				if (!this.login) {
+					uni.navigateTo({
+						url:"login"
+					});
+				}else {
+					uni.navigateTo({
+						url:"bill"
+					})
+				}
+			},
+			//银行卡
+			goBankCard() {
+				if (!this.login) {
+					uni.navigateTo({
+						url:"login"
+					});
+				}else {
+					uni.navigateTo({
+						url:"bankcard"
+					})
+				}
+			}
 		},
 		onLoad() {
 			this.uerInfo ={
@@ -127,7 +168,7 @@
 	.logo-img {
 		width: 150upx;
 		height: 150upx;
-		border-radius: 150upx;
+		/*border-radius: 150upx;*/
 	}
 
 	.logo-title {

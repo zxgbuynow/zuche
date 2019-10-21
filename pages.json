@@ -73,6 +73,37 @@
 			"style": {
 				"navigationBarTitleText": "实名认证"
 			}
+		},
+		{
+			"path": "pages/my/bill",
+			"style": {
+				"navigationBarTitleText": "账单"
+			}
+		},
+		{
+			"path": "pages/my/cash",
+			"style": {
+				"navigationBarTitleText": "提现"
+			}
+		},
+		{
+			"path": "pages/my/balance",
+			"style": {
+				"navigationBarTitleText": "余额"
+			}
+		},
+		{
+			"path": "pages/my/bankcard",
+			"style": {
+				"navigationBarTitleText": "银行卡",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/my/personal",
+			"style": {
+				"navigationBarTitleText": "个人信息"
+			}
 		}
     ],
 	"globalStyle": {
