@@ -104,6 +104,12 @@
 			"style": {
 				"navigationBarTitleText": "个人信息"
 			}
+		},
+		{
+			"path": "pages/my/invitation",
+			"style": {
+				"navigationBarTitleText": "邀请"
+			}
 		}
     ],
 	"globalStyle": {

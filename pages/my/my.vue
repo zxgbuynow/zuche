@@ -4,7 +4,7 @@
 			<image class="logo-img" :src="uerInfo.avatarUrl ? uerInfo.avatarUrl :avatarUrl"></image>
 			<view class="logo-title">
 				<text class="uer-name" @click="goLogin">{{login ? uerInfo.name : '登入/注册'}}</text>
-				<text style="margin-left: 100px;" v-if="login">￥666</text>
+				<text style="margin-left: 100px;" v-if="login">￥{{login ? uerInfo.balance :"0.00"}}</text>
 				<text class="go-login navigat-arrow" v-if="login">&#xe65e;</text>
 			</view>
 		</view>
@@ -58,7 +58,7 @@
 	export default {
 		data() {
 			return {
-				login: true,
+				login: false,
 				authentication:false,
 				avatarUrl: "../../static/logo.png",
 				uerInfo: {}
@@ -123,9 +123,55 @@
 			}
 		},
 		onLoad() {
-			this.uerInfo ={
-				"name":"张三"
+			
+			var token = '';
+			var ischeck = '';
+			uni.getStorage({
+				key:"token",
+				success:function(res){
+					if(res.data) {
+						token = res.data
+						
+					}
+				}
+			});
+			uni.getStorage({
+				key:"ischeck",
+				success:function(res){
+					if(res.data) {
+						ischeck = res.data
+						
+					}
+				}
+			})
+			if (token) {
+				this.login = true;
+				//调取myInfo
+				uni.request({
+					url:this.$url.apiUrl() + "myInfo",
+					method:"POST",
+					dataType:"json",
+					header:{
+						token:token,
+					},
+					success: (res) => {
+						if(res.data.status==0) {
+							this.uerInfo ={
+								"name":res.data.data.username ? res.data.data.username : '测试' ,
+								"balance":res.data.data.balance,
+								
+							}
+							if(res.data.data.avatar) {
+								this.avatarUrl=res.data.data.avatar;//获取头像
+							}
+						}
+					}
+				})
 			}
+			if (ischeck) {
+				this.authentication = true;
+			}
+			
 		}
 	}
 </script>
