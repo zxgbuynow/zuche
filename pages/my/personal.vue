@@ -15,7 +15,7 @@
 			<view class="title-small">邮箱</view>
 			<view class="content-info">未填写</view>
 		</view>
-		<button type="default" style="margin:50px 20px 0 20px">退出登入</button>
+		<button type="default" @tap="goLogout()" style="margin:50px 20px 0 20px">退出登入</button>
 	</view>
 </template>
 
@@ -33,7 +33,25 @@ export default {
 		//头像
 		updateHeaderImg() {
 			this.$api.msg('修改头像')
-		}
+		},
+		//退出登录
+		goLogout() {
+			uni.removeStorage({
+				key: 'token',
+				success: function (res) {
+					console.log('success');
+				}
+			});
+			uni.removeStorage({
+				key: 'ischeck',
+				success: function (res) {
+					console.log('success');
+				}
+			})
+			uni.switchTab({
+				url:"/pages/my/my"
+			})
+		},
 	},
 	onLoad() {
 		

@@ -65,6 +65,8 @@
 			}
 		},
 		onShow() {
+			var token  ="";
+			var ischeck = '';
 			//如果未登录跳转登录
 			uni.getStorage({
 				key:"token",
@@ -74,9 +76,53 @@
 						uni.navigateTo({
 							url:"login"
 						})
+					}else {
+						token = res.data;
 					}
 				}
 			});
+			uni.getStorage({
+				key:"ischeck",
+				success:function(res){
+					if(res.data) {
+						ischeck = res.data
+						
+					}
+				}
+			});
+			if(!token) {
+				uni.navigateTo({
+					url:"login"
+				})
+				return;
+			}
+			//if(token) {
+				this.login = true;
+				//调取myInfo
+				uni.request({
+					url:this.$url.apiUrl() + "myInfo",
+					method:"POST",
+					dataType:"json",
+					header:{
+						token:token,
+					},
+					success: (res) => {
+						if(res.data.status==0) {
+							this.uerInfo ={
+								"name":res.data.data.username ? res.data.data.username : '测试' ,
+								"balance":res.data.data.balance,
+								
+							}
+							if(res.data.data.avatar) {
+								this.avatarUrl=res.data.data.avatar;//获取头像
+							}
+						}
+					}
+				})
+			//}
+			if (ischeck) {
+				this.authentication = true;
+			}
 		},
 		methods: {
 			//个人信息
