@@ -64,6 +64,20 @@
 				uerInfo: {}
 			}
 		},
+		onShow() {
+			//如果未登录跳转登录
+			uni.getStorage({
+				key:"token",
+				success:function(res){
+					if(!res.data) {
+						
+						uni.navigateTo({
+							url:"login"
+						})
+					}
+				}
+			});
+		},
 		methods: {
 			//个人信息
 			goPerson(){
@@ -91,6 +105,12 @@
 			},
 			//实名认证
 			goAuthen() {
+				if (!this.login) {
+					uni.navigateTo({
+						url:"login"
+					});
+					return;
+				}
 				if(!this.authentication) {
 					uni.navigateTo({
 						url:"authentication"
@@ -135,6 +155,13 @@
 					}
 				}
 			});
+			if(!token) {
+				console.log(token);
+				uni.navigateTo({
+					url:"login"
+				})
+				return;
+			}
 			uni.getStorage({
 				key:"ischeck",
 				success:function(res){

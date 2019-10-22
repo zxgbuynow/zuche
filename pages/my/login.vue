@@ -63,7 +63,7 @@
 				isRotate: false, //是否加载旋转
 				countdown:'获取验证码',
 				disabled:false,
-				timestatus:true,
+				timestatus:false,
 				clear:'',
 			}
 		},
@@ -223,7 +223,7 @@
 		width: 180px;
 	}
 	.input-vcode{
-		width: 115px;
+		width: 120px;
 		height: 60px;
 		line-height: 60px;
 		float: left;
@@ -237,7 +237,7 @@
 	}
 	.send-vcode{
 		height: 60px;
-		width: 120px;
+		
 		line-height: 60px;
 		display: inline-block;
 		color: #0081FF;
@@ -256,8 +256,8 @@
 		    transform: scale(.5);
 		    -webkit-transform-origin: 0 0;
 		    transform-origin: 0 0;
-		    box-sizing: border-box;
-		    border-radius: 10px;
+		    /*box-sizing: border-box;
+		    border-radius: 10px;*/
 	}
 	uni-button[disabled]:not([type]), uni-button[disabled][type=default] {
 	    /* color: rgba(0,0,0,.3); */

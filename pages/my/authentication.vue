@@ -91,7 +91,6 @@
 }
 .send-vcode{
 	height: 40px;
-	width: 110px;
 	line-height: 40px;
 	display: inline-block;
 	color: #0081FF;
