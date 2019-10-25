@@ -223,7 +223,7 @@
 		width: 180px;
 	}
 	.input-vcode{
-		width: 120px;
+		width: 100px;
 		height: 60px;
 		line-height: 60px;
 		float: left;
@@ -237,7 +237,7 @@
 	}
 	.send-vcode{
 		height: 60px;
-		
+		width: 120px;
 		line-height: 60px;
 		display: inline-block;
 		color: #0081FF;

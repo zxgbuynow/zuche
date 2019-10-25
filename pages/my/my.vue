@@ -190,60 +190,6 @@
 		},
 		onLoad() {
 			
-			var token = '';
-			var ischeck = '';
-			uni.getStorage({
-				key:"token",
-				success:function(res){
-					if(res.data) {
-						token = res.data
-						
-					}
-				}
-			});
-			if(!token) {
-				console.log(token);
-				uni.navigateTo({
-					url:"login"
-				})
-				return;
-			}
-			uni.getStorage({
-				key:"ischeck",
-				success:function(res){
-					if(res.data) {
-						ischeck = res.data
-						
-					}
-				}
-			})
-			if (token) {
-				this.login = true;
-				//调取myInfo
-				uni.request({
-					url:this.$url.apiUrl() + "myInfo",
-					method:"POST",
-					dataType:"json",
-					header:{
-						token:token,
-					},
-					success: (res) => {
-						if(res.data.status==0) {
-							this.uerInfo ={
-								"name":res.data.data.username ? res.data.data.username : '测试' ,
-								"balance":res.data.data.balance,
-								
-							}
-							if(res.data.data.avatar) {
-								this.avatarUrl=res.data.data.avatar;//获取头像
-							}
-						}
-					}
-				})
-			}
-			if (ischeck) {
-				this.authentication = true;
-			}
 			
 		}
 	}
